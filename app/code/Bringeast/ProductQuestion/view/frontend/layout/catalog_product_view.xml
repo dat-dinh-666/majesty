@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Review\Block\Product\Review" name="reviews.tab" as="reviews" template="Magento_Review::review.phtml" group="detailed_info" ifconfig="catalog/review/active">
+                <arguments>
+                    <argument name="sort_order" xsi:type="string">40</argument>
+                </arguments>
+                <block name="product.feedback.form" as="review_form">
+                    <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
+                </block>
+            </block>
+
+                <block name="product.feedback.form" as="feedback_form" template="Brgni">
+                    <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
+                </block>
+        </referenceBlock>
+    </body>
+</page>
