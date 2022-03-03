@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bringeast_ProductQuestion::index" translate="title" title="Bringeast" module="Bringeast_ProductQuestion" sortOrder="9999" resource="Magento_Backend::content"/>
+        <add id="Bringeast_ProductQuestion::question" translate="title" title="Product Question" module="Bringeast_ProductQuestion" sortOrder="9999" resource="Magento_Backend::content" parent="Bringeast_ProductQuestion::index" action="bringeast/question/index"/>
+    </menu>
+</config>

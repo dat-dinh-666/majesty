@@ -8,7 +8,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="product.info.main">
-            <block name="product.feedback.form" as="feedback_form" template="Bringeast_ProductQuestion::product/form.phtml" after="-"/>
+            <block name="product.social_share" class="Bringeast\SocialShare\Block\SocialShare" template="Bringeast_SocialShare::product/share.phtml" after="-"/>
         </referenceBlock>
     </body>
 </page>

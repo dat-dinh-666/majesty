@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Label
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Bringeast\ProductQuestion\Model\ResourceModel\ProductQuestion\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bringeast_product_question</argument>
+            <argument name="resourceModel" xsi:type="string">
+                Bringeast\ProductQuestion\Model\ResourceModel\ProductQuestion\Collection
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Bringeast\ProductQuestion\View\Element\UiComponent\DataProvider\DataProvider"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="bringeast_product_question_listing_data_source" xsi:type="string">Bringeast\ProductQuestion\Model\ResourceModel\ProductQuestion\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Bringeast\ProductQuestion\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="addFilterStrategies" xsi:type="array">
+                <item name="methods" xsi:type="object">Bringeast\ProductQuestion\Ui\DataProvider\DataProvider\ProductFilterStrategy</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

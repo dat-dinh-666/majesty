@@ -1,0 +1,54 @@
+<?php
+/** @var $block \Bringeast\SocialShare\Block\SocialShare  */
+$isFacebookEnable = $block->isFacebookEnable();
+$fbAppId = $block->getFbAppId();
+$isTwitterEnable = $block->isTwitterEnable();
+$isPinterestEnable = $block->isPinteresEnable();
+?>
+<?php if ($isFacebookEnable && $fbAppId) : ?>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0&appId=<?= $fbAppId ?>&autoLogAppEvents=1" nonce="TkNf8wgm"></script>
+<?php endif ?>
+<div class="social-share">
+    <?php if ($isFacebookEnable && $fbAppId): ?>
+    <div class="facebook">
+        <div class="fb-like" data-href="<?= $block->getUrl() ?>" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+    </div>
+    <?php endif; ?>
+    <?php if($isTwitterEnable): ?>
+    <div class="twitter">
+        <a class="twitter-share-button"
+           href="https://twitter.com/intent/tweet">
+            Tweet</a>
+    </div>
+    <?php endif; ?>
+    <?php if($isPinterestEnable): ?>
+    <div class="pinterest">
+        <a data-pin-do="buttonBookmark" href="https://www.pinterest.com/pin/create/button/"></a>
+    </div>
+    <?php endif ?>
+</div>
+<style>
+    .social-share {
+        display: flex;
+        gap: 10px;
+        padding: 20px 0;
+    }
+</style>
+<script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+<script>window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+            t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));</script>

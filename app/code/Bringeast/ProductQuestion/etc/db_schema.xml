@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bringeast_product_question" resource="default" engine="innodb" comment="Bringeast Product Question Table">
+        <column xsi:type="int" name="id" padding="6" unsigned="true" nullable="false" identity="true" comment="Id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <column name="name" nullable="false" xsi:type="text" comment="Name"/>
+        <column name="phone" nullable="false" xsi:type="text" comment="Phone"/>
+        <column name="email" nullable="false" xsi:type="text" comment="Email"/>
+        <column name="zip_code" nullable="true" xsi:type="text" comment="Zip Code"/>
+        <column name="comments" nullable="false" xsi:type="text" comment="Comments"/>
+        <column name="created_at" nullable="false" default="CURRENT_TIMESTAMP" xsi:type="datetime"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" comment="Product ID"/>
+        <constraint xsi:type="foreign" referenceId="FL_ALLOWED_SEVERITIES" table="bringeast_product_question" column="id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>
